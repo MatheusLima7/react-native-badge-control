@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
+import me.leolin.shortcutbadger.ShortcutBadger;
 
 @ReactModule(name = BadgeControlModule.NAME)
 public class BadgeControlModule extends ReactContextBaseJavaModule {
@@ -26,9 +27,15 @@ public class BadgeControlModule extends ReactContextBaseJavaModule {
     // Example method
     // See https://reactnative.dev/docs/native-modules-android
     @ReactMethod
-    public void multiply(int a, int b, Promise promise) {
-        promise.resolve(a * b);
+    public void setCounterBadges(int count, Promise promise) {
+      ShortcutBadger.applyCount(getReactApplicationContext(), count);
+      promise.resolve(count);
     }
 
-    public static native int nativeMultiply(int a, int b);
+    @ReactMethod
+    public void removeCounterBadge(Promise promise) {
+      ShortcutBadger.removeCount(getReactApplicationContext());
+      promise.resolve(0);
+    }
+
 }

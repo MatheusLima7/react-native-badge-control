@@ -17,6 +17,10 @@ const BadgeControl = NativeModules.BadgeControl
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return BadgeControl.multiply(a, b);
+export function setCounterBadges(a: number): Promise<number> {
+  return BadgeControl.setCounterBadges(a);
+}
+
+export function removeCounterBadge(): Promise<number> {
+  return BadgeControl.removeCounterBadge();
 }

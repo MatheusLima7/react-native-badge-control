@@ -11,11 +11,11 @@ npm install react-native-badge-control
 ## Usage
 
 ```js
-import { multiply } from "react-native-badge-control";
+import { setCounterBadge } from 'react-native-badge-control';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await setCounterBadge(3);
 ```
 
 ## Contributing

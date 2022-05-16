@@ -1,19 +1,22 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-badge-control';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { setCounterBadges } from 'react-native-badge-control';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    setCounterBadges(3).then(setResult);
   }, []);
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => setCounterBadges(10)}
+      style={styles.container}
+    >
       <Text>Result: {result}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
