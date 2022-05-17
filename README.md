@@ -1,6 +1,6 @@
 # react-native-badge-control
 
-Packate Badge Control
+Package Badge Control
 
 ## Installation
 
